@@ -4,8 +4,8 @@ from slackclient import SlackClient
 import requests
 
 # 'url', chatbot endpoint and 'slack_token' is slack application user-access-token
-url = "http://127.0.0.1:5001/chatbot/v2/api"
-slack_token = "xoxb-500606043190-519530019126-0HJkwAZCRYFG9PzZlipO8hoI"
+url = "http://127.0.0.1:****/*******/v2/api"
+slack_token = "xoxb-**********-***********-*************lipO8hoI"
 
 # instantiate Slack client
 slack_client = SlackClient(slack_token)
