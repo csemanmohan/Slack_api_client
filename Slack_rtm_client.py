@@ -25,12 +25,20 @@ def parse_bot_commands(slack_events):
         If a bot command is found, this function returns a tuple of command and channel.
         If its not found, then this function returns None, None.
     """
+    # below var msg and channel_var will be used/
+    # when no trigger(@app-name) passed from application
+    msg = ""
+    channel_def = ""
     for event in slack_events:
         if event["type"] == "message" and not "subtype" in event:
+            msg = event["text"]
+            channel_def = event["channel"]
             user_id, message = parse_direct_mention(event["text"])
+            print("there is an event here...", user_id, message)
             if user_id == starterbot_id:
                 return message, event["channel"]
-    return None, None
+    channel_def = channel_def
+    return msg, channel_def
 
 
 def parse_direct_mention(message_text):
